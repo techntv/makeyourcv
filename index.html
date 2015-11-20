@@ -25,7 +25,8 @@
     <li>A demonstration <code>index.md</code> to show off the above two points.</li>
   </ul>
   <h2>Glosses</h2>
-  <p>Glossing is supported with <a href="#todo"><code>/static/scripts/leipzig.js</code></a>, <a href="https://bdchauvette.github.io/leipzig.js/examples/">Leipzig.js</a>.</p>
+  <p>Glossing is supported with <a href="https://github.com/cofl/metalsmith-markdown-site-template/blob/gh-pages/src/src/static/static/scripts/leipzig.js"><code>/static/scripts/leipzig.js</code></a>,
+    <a href="https://bdchauvette.github.io/leipzig.js/examples/">Leipzig.js</a>.</p>
   <div data-gloss>
     <p>Die Umgangssprache ist ein Teil des menschlichen Organismus und nicht weniger kompliziert als dieser.</p>
     <p>die umgangssprache ist ein teil des mensch-lich-en organismus und nicht wenig-er komplizeiert als dies-er</p>
@@ -33,17 +34,19 @@
     <p>the {colloquial language} is a part {of the} human organism and not less complicated than it</p>
     <p>‘Colloquial language is a part of the human organism and is not less complicated than it.’ &mdash; Wittgenstein, <i>Tractatus Logico-Philosophicus</i>, 4.002</p>
   </div>
-  <p>To change the settings, add an <a href="#todo">index.js</a> file like the one linked.</p>
+  <p>To change the settings, add an <a href="https://github.com/cofl/metalsmith-markdown-site-template/blob/gh-pages/src/src/render/index.js">index.js</a> file like
+    the one linked.</p>
   <h2>CSV Tables</h2>
-  <p>With the CSV-Tables script (<a href="#todo"><code>/static/scripts/csv-tables.js</code></a>), it becomes easy to include an external CSV file as a table in your
-    page. To use it, just put:</p> <pre><code>&lt;table data-csv=&quot;http://some-url-to/your-file.csv&quot;&gt;&lt;/table&gt;
+  <p>With the CSV-Tables script (<a href="https://github.com/cofl/metalsmith-markdown-site-template/blob/gh-pages/src/src/static/static/scripts/csv-tables.js"><code>/static/scripts/csv-tables.js</code></a>),
+    it becomes easy to include an external CSV file as a table in your page. To use it, just put:</p> <pre><code>&lt;table data-csv=&quot;http://some-url-to/your-file.csv&quot;&gt;&lt;/table&gt;
 </code></pre>
   <p>For example:</p>
   <table data-csv="example.csv"></table>
   <h2>Header-Links</h2>
-  <p>The header-links script (<a href="#todo"><code>/static/scripts/header-links.js</code></a>) automatically generates a table of contents like the one on the left.
-    By default, it inserts it into a <code>div</code> with the id <code>nav</code>, so <strong>don’t use that in your code</strong>!!! Everything in it will be overridden.</p>
-  <p>If you want to add HTML before or after the generated ToC, throw a <code>template</code> in the YAML header for your markdown file (see <a href="#todo">index.md</a>).
+  <p>The header-links script (<a href="https://github.com/cofl/metalsmith-markdown-site-template/blob/gh-pages/src/src/static/static/scripts/header-links.js"><code>/static/scripts/header-links.js</code></a>)
+    automatically generates a table of contents like the one on the left from the headers on your page. By default, it inserts it into a <code>div</code> with the
+    id <code>nav</code>, so <strong>don’t use that in your code</strong>!!! Everything in it will be overridden.</p>
+  <p>If you want to add HTML before or after the generated ToC, throw a <code>template</code> in the YAML header for your markdown file (see <a href="https://raw.githubusercontent.com/cofl/metalsmith-markdown-site-template/gh-pages/src/src/render/index.md">index.md</a>).
     The one for this page looks like this:</p> <pre><code>templates:
   header-top: &gt;
     &lt;a href=&quot;#top&quot;&gt;top of page&lt;/a&gt;
@@ -78,6 +81,7 @@
       you can do with the base version: there’s no inline HTML, for example. With HTML, you could do great things like links to other parts of the same page, or
       advanced tables, or clean glossing with Leipzig.js.</li>
   </ul>
+  <h2>2. Getting Going</h2>
   <p>But OP! That’s so many things! How will I ever get started with it all? Good news, random citizen! You only need the first three (Cygwin, NodeJS, Git), as I’ve
     prepared a template site for you! It’s very easy to get started from there:</p>
   <ol>
@@ -104,6 +108,7 @@
     runs, and <code>src/static</code>, for things you don’t want Metalsmith to touch, only copy. Both of these support having sub-folders.</p>
   <p>In the <code>src/src</code> folder is where you should put all the Markdown files (.md) that will be the pages of your site. These will be rendered into HTML and
     saved with a .html extension. For example, <code>src/src/index.md</code> would be rendered to <code>index.html</code>, and <code>src/src/some-folder/some-file.md</code>    would be rendered to <code>some-folder/some-file.html</code>. Check out the example file for more details.</p>
+  <h2>3. Uploading</h2>
   <p>Lastly, how to save. Git is what is known as a version control system. Basically, it keeps track of all the changes saved across all the copies of the repository.
     To upload your site to GitHub, open a command prompt/terminal, build the repository with <code>make</code>, and enter:</p> <pre><code>git add --all
 </code></pre>
