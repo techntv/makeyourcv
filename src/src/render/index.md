@@ -25,7 +25,7 @@ This is a template site using Metalsmith and Markdown, based on <https://cofl.gi
 
 ## Glosses
 
-Glossing is supported with [`/static/scripts/leipzig.js`](#todo), [Leipzig.js](https://bdchauvette.github.io/leipzig.js/examples/).
+Glossing is supported with [`/static/scripts/leipzig.js`](https://github.com/cofl/metalsmith-markdown-site-template/blob/gh-pages/src/src/static/static/scripts/leipzig.js), [Leipzig.js](https://bdchauvette.github.io/leipzig.js/examples/).
 
 <div data-gloss>
   <p>Die Umgangssprache ist ein Teil des menschlichen Organismus und nicht weniger kompliziert als dieser.</p>
@@ -35,11 +35,11 @@ Glossing is supported with [`/static/scripts/leipzig.js`](#todo), [Leipzig.js](h
   <p>‘Colloquial language is a part of the human organism and is not less complicated than it.’ &mdash; Wittgenstein, <i>Tractatus Logico-Philosophicus</i>, 4.002</p>
 </div>
 
-To change the settings, add an [index.js](#todo) file like the one linked.
+To change the settings, add an [index.js](https://github.com/cofl/metalsmith-markdown-site-template/blob/gh-pages/src/src/render/index.js) file like the one linked.
 
 ## CSV Tables
 
-With the CSV-Tables script ([`/static/scripts/csv-tables.js`](#todo)), it becomes easy to include an external CSV file as a table in your page. To use it, just put:
+With the CSV-Tables script ([`/static/scripts/csv-tables.js`](https://github.com/cofl/metalsmith-markdown-site-template/blob/gh-pages/src/src/static/static/scripts/csv-tables.js)), it becomes easy to include an external CSV file as a table in your page. To use it, just put:
 
     <table data-csv="http://some-url-to/your-file.csv"></table>
     
@@ -49,9 +49,9 @@ For example:
 
 ## Header-Links
 
-The header-links script ([`/static/scripts/header-links.js`](#todo)) automatically generates a table of contents like the one on the left. By default, it inserts it into a `div` with the id `nav`, so __don't use that in your code__!!! Everything in it will be overridden.
+The header-links script ([`/static/scripts/header-links.js`](https://github.com/cofl/metalsmith-markdown-site-template/blob/gh-pages/src/src/static/static/scripts/header-links.js)) automatically generates a table of contents like the one on the left from the headers on your page. By default, it inserts it into a `div` with the id `nav`, so __don't use that in your code__!!! Everything in it will be overridden.
 
-If you want to add HTML before or after the generated ToC, throw a `template` in the YAML header for your markdown file (see [index.md](#todo)). The one for this page looks like this:
+If you want to add HTML before or after the generated ToC, throw a `template` in the YAML header for your markdown file (see [index.md](https://raw.githubusercontent.com/cofl/metalsmith-markdown-site-template/gh-pages/src/src/render/index.md)). The one for this page looks like this:
 
     templates:
       header-top: >
@@ -81,6 +81,9 @@ There are a few things you'll need to get started. A lot of these are platform s
 - [Metalsmith](https://web.archive.org/web/20151103035947/http://www.metalsmith.io/) (the site is down as of this writing, so I've linked to the latest WebArchive copy).
   Metalsmith is a program/script that will generate static content from a set of source files. For this tutorial, we'll be using Markdown, which is what's used here on reddit for text formatting. That's a little bit of a lie: the Markdown available on reddit is very restricted compared to what you can do with the base version: there's no inline HTML, for example. With HTML, you could do great things like links to other parts of the same page, or advanced tables, or clean glossing with Leipzig.js.
 
+  
+## 2. Getting Going
+
 But OP! That's so many things! How will I ever get started with it all? Good news, random citizen! You only need the first three (Cygwin, NodeJS, Git), as I've prepared a template site for you! It's very easy to get started from there:
 
 1. Log in to GitHub.
@@ -102,6 +105,8 @@ Now, some more things:
 The `src` folder is where all the things for you site go. Actually, they go in `src/src`, for things that will be rendered when Metalsmith runs, and `src/static`, for things you don't want Metalsmith to touch, only copy. Both of these support having sub-folders.
 
 In the `src/src` folder is where you should put all the Markdown files (.md) that will be the pages of your site. These will be rendered into HTML and saved with a .html extension. For example, `src/src/index.md` would be rendered to `index.html`, and `src/src/some-folder/some-file.md` would be rendered to `some-folder/some-file.html`. Check out the example file for more details.
+
+## 3. Uploading
 
 Lastly, how to save. Git is what is known as a version control system. Basically, it keeps track of all the changes saved across all the copies of the repository. To upload your site to GitHub, open a command prompt/terminal, build the repository with `make`, and enter:
 
