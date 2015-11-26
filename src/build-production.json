@@ -10,7 +10,7 @@
       "pattern": "\\.md$"
     },
     "metalsmith-markdownit": {
-      "typographer": true,
+      "typographer": false,
       "html": true
     },
     "metalsmith-beautify": {

@@ -126,6 +126,7 @@ There is a file called `Makefile` in the repository that provides a few commands
 - `make install`: Installs all NPM dependencies. This is necessary for everything else to work.
 - `make clean-npm`: Removes all NPM dependencies.
 - `make build`: Runs Metalsmith and generates your site. You can also run just `make`, and it'll do the same thing.
+  - `make build-watched`: Runs Metalsmith with the `build-development` configuration, which starts a live reload server and includes the necessary script in the template.
 - `make clean`: Removes all generated files. This is run before every build automatically.
 - `make show`: This is more convenience than anything. It starts a static file server in the repository folder, so after running it you can open any web browser and go to [`http://localhost/`](http://localhost/) to view your generated site. I recommend doing this before every time you upload the site.
 
