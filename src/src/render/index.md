@@ -7,6 +7,7 @@ static-scripts:
   - leipzig.js
   - csv-tables.js
   - header-link.js
+  - clone-attributes.js
 templates:
   header-top: >
     <a href="#top">top of page</a>
@@ -60,6 +61,34 @@ If you want to add HTML before or after the generated ToC, throw a `template` in
       header-trail: >
         <hr/>
         This ToC was automagically generated.
+        
+## `clone-attributes.js`
+
+[`clone-attributes.js`](https://github.com/cofl/metalsmith-markdown-site-template/blob/gh-pages/src/src/static/static/scripts/clone-attributes.js) is a convenience script that takes all attributes of a `<clone>` element and copies them to the next element, or the parent node's next element if the `<clone>` element is the last child of a `<p>` element (paragraph), merging the class or style attributes if both the `<clone>` node and its sibling have them. This is useful for writing tables; with it, instead of writing out the full table in HTML just to add a few classes, you could instead do:
+
+    <clone class="row-headers"></clone>
+    |Some-table|header|header|
+    |----------|------|------|
+    |row header|etc   |etc   |
+
+<clone class="row-headers"></clone>
+|Some-table|header|header|
+|----------|------|------|
+|row header|etc   |etc   |
+
+for example, to create a table with markdown, and give it the "row-headers" class. This class also triggers a special case on tables: the script will change the first element of any table row to a `<th>` cell from a `<td>` cell.
+
+`<clone-p>` does the same thing, but instead of copying to the sibling, copies to the parent; useful for spanning multiple columns:
+
+<pre>|Table |header|header|
+|:----:|------|------|
+|&lt;clone-p colspan=3 style="background:#aaa"></clone-p>content|</pre>
+
+|Table |header|header|
+|:----:|------|------|
+|<clone-p colspan=3 style="background:#aaa"></clone-p>content|
+
+The only side-effect of this script is the automatic removal of all empty table cells at the end of a row.
 
 ## Getting Started with Metalsmith and Github Pages: A Tutorial for Your Own Conlang Website
 
@@ -67,7 +96,7 @@ _This tutorial was originally uploaded to reddit._
 
 Hello! Today, I'd like to walk you through the steps of how you can set up your own conlanging website akin to [mine](https://cofl.github.io) using Metalsmith for page generation and GitHub pages for hosting. This method is not perfect for everyone, but I'll try to cover everything in detail.
 
-## 1. Prerequisites
+### 1. Prerequisites
 
 There are a few things you'll need to get started. A lot of these are platform specific, but as I have experience with Windows, I'll cover what's required for that. Users of Linux and Mac should be able to still follow along and get the general idea of what you'll need, but Google is your friend.
 
@@ -78,11 +107,11 @@ There are a few things you'll need to get started. A lot of these are platform s
   Follow that quick tutorial to install NodeJS and NPM. NodeJS is a program that runs javascript locally on your computer, and is what Metalsmith is built on. NPM is a dependency manager that you'll use to install Metalsmith and the packages you'll need to make it work. To check that they installed correctly, open a command prompt/terminal and type `node --version && npm --version`. It should print out two numbers, each on their own line.
 - [Git](https://git-scm.com/)
   There are all sorts of programs for using Git, a version control system. I personally prefer the command-line interface, but Atlassian SourceTree and GitHub for Windows/GitHub for Mac work well.
-- [Metalsmith](https://web.archive.org/web/20151103035947/http://www.metalsmith.io/) (the site is down as of this writing, so I've linked to the latest WebArchive copy).
+- [Metalsmith](http://www.metalsmith.io/).
   Metalsmith is a program/script that will generate static content from a set of source files. For this tutorial, we'll be using Markdown, which is what's used here on reddit for text formatting. That's a little bit of a lie: the Markdown available on reddit is very restricted compared to what you can do with the base version: there's no inline HTML, for example. With HTML, you could do great things like links to other parts of the same page, or advanced tables, or clean glossing with Leipzig.js.
 
   
-## 2. Getting Going
+### 2. Getting Going
 
 But OP! That's so many things! How will I ever get started with it all? Good news, random citizen! You only need the first three (Cygwin, NodeJS, Git), as I've prepared a template site for you! It's very easy to get started from there:
 
@@ -106,7 +135,7 @@ The `src` folder is where all the things for you site go. Actually, they go in `
 
 In the `src/src` folder is where you should put all the Markdown files (.md) that will be the pages of your site. These will be rendered into HTML and saved with a .html extension. For example, `src/src/index.md` would be rendered to `index.html`, and `src/src/some-folder/some-file.md` would be rendered to `some-folder/some-file.html`. Check out the example file for more details.
 
-## 3. Uploading
+### 3. Uploading
 
 Lastly, how to save. Git is what is known as a version control system. Basically, it keeps track of all the changes saved across all the copies of the repository. To upload your site to GitHub, open a command prompt/terminal, build the repository with `make`, and enter:
 

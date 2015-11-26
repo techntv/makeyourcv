@@ -37,9 +37,9 @@ window.registerLoadScript(function(){
       }
       //make and add link to nav
       var tlem = document.createElement("a");
-      var link = elem.innerHTML.replace(/ /g,"_").toLowerCase();//only do this once
+      var link = elem.textContent.replace(/ /g,"_").toLowerCase();//only do this once
       tlem.setAttribute("href","#"+link);
-      tlem.innerHTML = elem.innerHTML;
+      tlem.innerHTML = elem.textContent;
       nav.appendChild(tlem);
       // update header in page.
       elem.innerHTML = '<a name="{1}"></a>{0} <a href="#{1}" class="fa fa-link link-icon"></a>'.format(elem.innerHTML, link);

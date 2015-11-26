@@ -1,5 +1,6 @@
 /*from stack overflow-->*/if(!String.prototype.format){String.prototype.format=function(){var a = arguments;return this.replace(/{(\d+)}/g,function(m,n){return (typeof a[n] != 'undefined')?a[n]:m;});};}
 /*from MDN-->*/if(!Array.prototype.map)Array.prototype.map=function(r,n){var t,e,o;if(null==this)throw new TypeError(" this is null or not defined");var i=Object(this),a=i.length>>>0;if("function"!=typeof r)throw new TypeError(r+" is not a function");for(arguments.length>1&&(t=n),e=new Array(a),o=0;a>o;){var f,l;o in i&&(f=i[o],l=r.call(t,f,o,i),e[o]=l),o++}return e};
+/*MDN textContent Polyfill*/if(Object.defineProperty&&Object.getOwnPropertyDescriptor&&Object.getOwnPropertyDescriptor(Element.prototype,"textContent")&&!Object.getOwnPropertyDescriptor(Element.prototype,"textContent").get){(function(){var innerText=Object.getOwnPropertyDescriptor(Element.prototype, "innerText");Object.defineProperty(Element.prototype,"textContent",{get:function(){return innerText.get.call(this);},set:function(s){return innerText.set.call(this, s);}});})();}
 
 window.onloadscripts = [];
 
