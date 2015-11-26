@@ -10,6 +10,7 @@
   <script src="/static/scripts/leipzig.js"></script>
   <script src="/static/scripts/csv-tables.js"></script>
   <script src="/static/scripts/header-link.js"></script>
+  <script src="/static/scripts/clone-attributes.js"></script>
   <template id="header-top"><a href="#top">top of page</a>
     <hr/> </template>
   <template id="header-trail">
@@ -55,11 +56,62 @@
     &lt;hr/&gt;
     This ToC was automagically generated.
 </code></pre>
+  <h2><code>clone-attributes.js</code></h2>
+  <p><a href="https://github.com/cofl/metalsmith-markdown-site-template/blob/gh-pages/src/src/static/static/scripts/clone-attributes.js"><code>clone-attributes.js</code></a>    is a convenience script that takes all attributes of a <code>&lt;clone&gt;</code> element and copies them to the next element, or the parent node’s next element
+    if the <code>&lt;clone&gt;</code> element is the last child of a <code>&lt;p&gt;</code> element (paragraph), merging the class or style attributes if both the
+    <code>&lt;clone&gt;</code> node and its sibling have them. This is useful for writing tables; with it, instead of writing out the full table in HTML just to
+    add a few classes, you could instead do:</p> <pre><code>&lt;clone class=&quot;row-headers&quot;&gt;&lt;/clone&gt;
+|Some-table|header|header|
+|----------|------|------|
+|row header|etc   |etc   |
+</code></pre>
+  <p>
+    <clone class="row-headers"></clone>
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th>Some-table</th>
+        <th>header</th>
+        <th>header</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>row header</td>
+        <td>etc</td>
+        <td>etc</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>for example, to create a table with markdown, and give it the “row-headers” class. This class also triggers a special case on tables: the script will change the
+    first element of any table row to a <code>&lt;th&gt;</code> cell from a <code>&lt;td&gt;</code> cell.</p>
+  <p><code>&lt;clone-p&gt;</code> does the same thing, but instead of copying to the sibling, copies to the parent; useful for spanning multiple columns:</p> <pre>|Table |header|header|
+|:----:|------|------|
+|&lt;clone-p colspan=3 style="background:#aaa"></clone-p>content|</pre>
+  <table>
+    <thead>
+      <tr>
+        <th style="text-align:center">Table</th>
+        <th>header</th>
+        <th>header</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align:center">
+          <clone-p colspan=3 style="background:#aaa"></clone-p>content</td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <p>The only side-effect of this script is the automatic removal of all empty table cells at the end of a row.</p>
   <h2>Getting Started with Metalsmith and Github Pages: A Tutorial for Your Own Conlang Website</h2>
   <p><em>This tutorial was originally uploaded to reddit.</em></p>
   <p>Hello! Today, I’d like to walk you through the steps of how you can set up your own conlanging website akin to <a href="https://cofl.github.io">mine</a> using
     Metalsmith for page generation and GitHub pages for hosting. This method is not perfect for everyone, but I’ll try to cover everything in detail.</p>
-  <h2>1. Prerequisites</h2>
+  <h3>1. Prerequisites</h3>
   <p>There are a few things you’ll need to get started. A lot of these are platform specific, but as I have experience with Windows, I’ll cover what’s required for
     that. Users of Linux and Mac should be able to still follow along and get the general idea of what you’ll need, but Google is your friend.</p>
   <ul>
@@ -75,13 +127,12 @@
       It should print out two numbers, each on their own line.</li>
     <li><a href="https://git-scm.com/">Git</a> There are all sorts of programs for using Git, a version control system. I personally prefer the command-line interface,
       but Atlassian SourceTree and GitHub for Windows/GitHub for Mac work well.</li>
-    <li><a href="https://web.archive.org/web/20151103035947/http://www.metalsmith.io/">Metalsmith</a> (the site is down as of this writing, so I’ve linked to the latest
-      WebArchive copy). Metalsmith is a program/script that will generate static content from a set of source files. For this tutorial, we’ll be using Markdown,
-      which is what’s used here on reddit for text formatting. That’s a little bit of a lie: the Markdown available on reddit is very restricted compared to what
-      you can do with the base version: there’s no inline HTML, for example. With HTML, you could do great things like links to other parts of the same page, or
-      advanced tables, or clean glossing with Leipzig.js.</li>
+    <li><a href="http://www.metalsmith.io/">Metalsmith</a>. Metalsmith is a program/script that will generate static content from a set of source files. For this tutorial,
+      we’ll be using Markdown, which is what’s used here on reddit for text formatting. That’s a little bit of a lie: the Markdown available on reddit is very restricted
+      compared to what you can do with the base version: there’s no inline HTML, for example. With HTML, you could do great things like links to other parts of the
+      same page, or advanced tables, or clean glossing with Leipzig.js.</li>
   </ul>
-  <h2>2. Getting Going</h2>
+  <h3>2. Getting Going</h3>
   <p>But OP! That’s so many things! How will I ever get started with it all? Good news, random citizen! You only need the first three (Cygwin, NodeJS, Git), as I’ve
     prepared a template site for you! It’s very easy to get started from there:</p>
   <ol>
@@ -108,7 +159,7 @@
     runs, and <code>src/static</code>, for things you don’t want Metalsmith to touch, only copy. Both of these support having sub-folders.</p>
   <p>In the <code>src/src</code> folder is where you should put all the Markdown files (.md) that will be the pages of your site. These will be rendered into HTML and
     saved with a .html extension. For example, <code>src/src/index.md</code> would be rendered to <code>index.html</code>, and <code>src/src/some-folder/some-file.md</code>    would be rendered to <code>some-folder/some-file.html</code>. Check out the example file for more details.</p>
-  <h2>3. Uploading</h2>
+  <h3>3. Uploading</h3>
   <p>Lastly, how to save. Git is what is known as a version control system. Basically, it keeps track of all the changes saved across all the copies of the repository.
     To upload your site to GitHub, open a command prompt/terminal, build the repository with <code>make</code>, and enter:</p> <pre><code>git add --all
 </code></pre>
