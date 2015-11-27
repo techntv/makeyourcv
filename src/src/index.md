@@ -6,8 +6,9 @@ static-scripts:
   - main.js
   - leipzig.js
   - csv-tables.js
-  - header-link.js
-  - clone-attributes.js
+generate:
+  nav: true
+  clone: true
 templates:
   header-top: >
     <a href="#top">top of page</a>
@@ -50,7 +51,12 @@ For example:
 
 ## Header-Links
 
-The header-links script ([`/static/scripts/header-links.js`](https://github.com/cofl/metalsmith-markdown-site-template/blob/gh-pages/src/src/static/static/scripts/header-links.js)) automatically generates a table of contents like the one on the left from the headers on your page. By default, it inserts it into a `div` with the id `nav`, so __don't use that in your code__!!! Everything in it will be overridden.
+The header-links script ~~(`/static/scripts/header-links.js`)~~ automatically generates a table of contents like the one on the left from the headers on your page. By default, it inserts it into a `div` with the id `nav`, so __don't use that in your code__!!! Everything in it will be overridden.
+
+__Update:__ The header-links.js script has been replaced. Now, to automagically generate navigation, simply add the following in the YAML header of your markdown file:
+
+    generate:
+      nav: true
 
 If you want to add HTML before or after the generated ToC, throw a `template` in the YAML header for your markdown file (see [index.md](https://raw.githubusercontent.com/cofl/metalsmith-markdown-site-template/gh-pages/src/src/render/index.md)). The one for this page looks like this:
 
@@ -64,7 +70,7 @@ If you want to add HTML before or after the generated ToC, throw a `template` in
         
 ## `clone-attributes.js`
 
-[`clone-attributes.js`](https://github.com/cofl/metalsmith-markdown-site-template/blob/gh-pages/src/src/static/static/scripts/clone-attributes.js) is a convenience script that takes all attributes of a `<clone>` element and copies them to the next element, or the parent node's next element if the `<clone>` element is the last child of a `<p>` element (paragraph), merging the class or style attributes if both the `<clone>` node and its sibling have them. This is useful for writing tables; with it, instead of writing out the full table in HTML just to add a few classes, you could instead do:
+~~`clone-attributes.js`~~ is a convenience script that takes all attributes of a `<clone>` element and copies them to the next element, or the parent node's next element if the `<clone>` element is the last child of a `<p>` element (paragraph), merging the class or style attributes if both the `<clone>` node and its sibling have them. This is useful for writing tables; with it, instead of writing out the full table in HTML just to add a few classes, you could instead do:
 
     <clone class="row-headers"></clone>
     |Some-table|header|header|
@@ -77,6 +83,17 @@ If you want to add HTML before or after the generated ToC, throw a `template` in
 |row header|etc   |etc   |
 
 for example, to create a table with markdown, and give it the "row-headers" class. This class also triggers a special case on tables: the script will change the first element of any table row to a `<th>` cell from a `<td>` cell.
+
+__Update:__ The clone-attributes.js script has been replaced. Now to perform the same functionality at page build time, simply add the following in the YAML header of your markdown file:
+
+    generate:
+      clone: true
+      
+If you've already enabled navigation generation, be sure not to add a new `generate` node! Just add clone next to the nav line like so:
+
+    generate:
+      nav: true
+      clone: true
 
 `<clone-p>` does the same thing, but instead of copying to the sibling, copies to the parent; useful for spanning multiple columns:
 
