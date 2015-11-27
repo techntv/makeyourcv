@@ -1,5 +1,5 @@
 {
-  "source": "./src/render",
+  "source": "./src",
   "destination": "../",
   "metadata": {},
   "clean": false,
@@ -10,22 +10,10 @@
       "pattern": "\\.md$"
     },
     "metalsmith-markdownit": {
-      "typographer": false,
       "html": true
     },
-    "metalsmith-beautify": {
-      "css": false,
-      "js" : false,
-      "html": {
-        "indent_size": 2,
-        "indent_char": " ",
-        "preserve_newlines": false,
-        "end_with_newline": true,
-        "space_before_conditional": false
-      }
-    },
-    "metalsmith-assets": {
-      "source": "./src/static"
-    }
+    "metalsmith-cofl-util": {},
+    "metalsmith-html-minifier": {},
+    "metalsmith-clean-css": {}
   }
 }

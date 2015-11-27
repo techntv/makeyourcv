@@ -1,181 +1,25 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="UTF-8" />
-  <title>metalsmith-markdown-site-template</title>
-  <link rel="stylesheet" type="text/css" href="/static/md.css" />
-  <script src="index.js"></script>
-  <script src="/static/scripts/main.js"></script>
-  <script src="/static/scripts/leipzig.js"></script>
-  <script src="/static/scripts/csv-tables.js"></script>
-  <script src="/static/scripts/header-link.js"></script>
-  <script src="/static/scripts/clone-attributes.js"></script>
-  <template id="header-top"><a href="#top">top of page</a>
-    <hr/> </template>
-  <template id="header-trail">
-    <hr/> This ToC was automagically generated. </template>
-</head>
-
-<body>
-  <h1><a name="top" title="Top">metalsmith markdown site template</a></h1>
-  <p>This is a template site using Metalsmith and Markdown, based on <a href="https://cofl.github.io">https://cofl.github.io</a>. Included batteries are:</p>
-  <ul>
-    <li>Prebuilt stylesheet (<code>md.css</code>)</li>
-    <li>Several prebuilt scripts that should be useful for just about everyone.</li>
-    <li>A demonstration <code>index.md</code> to show off the above two points.</li>
-  </ul>
-  <h2>Glosses</h2>
-  <p>Glossing is supported with <a href="https://github.com/cofl/metalsmith-markdown-site-template/blob/gh-pages/src/src/static/static/scripts/leipzig.js"><code>/static/scripts/leipzig.js</code></a>,
-    <a href="https://bdchauvette.github.io/leipzig.js/examples/">Leipzig.js</a>.</p>
-  <div data-gloss>
-    <p>Die Umgangssprache ist ein Teil des menschlichen Organismus und nicht weniger kompliziert als dieser.</p>
-    <p>die umgangssprache ist ein teil des mensch-lich-en organismus und nicht wenig-er komplizeiert als dies-er</p>
-    <p>DET.NOM.F.SG {colloquial language} be.3SG.PRS DET.NOM.M.SG part DET.GEN.M.SG human-ADJ-AGR.GEN.M.SG organism and NEG less-CMPR complicated CMPR DET-AGR.M.SG</p>
-    <p>the {colloquial language} is a part {of the} human organism and not less complicated than it</p>
-    <p>‘Colloquial language is a part of the human organism and is not less complicated than it.’ &mdash; Wittgenstein, <i>Tractatus Logico-Philosophicus</i>, 4.002</p>
-  </div>
-  <p>To change the settings, add an <a href="https://github.com/cofl/metalsmith-markdown-site-template/blob/gh-pages/src/src/render/index.js">index.js</a> file like
-    the one linked.</p>
-  <h2>CSV Tables</h2>
-  <p>With the CSV-Tables script (<a href="https://github.com/cofl/metalsmith-markdown-site-template/blob/gh-pages/src/src/static/static/scripts/csv-tables.js"><code>/static/scripts/csv-tables.js</code></a>),
-    it becomes easy to include an external CSV file as a table in your page. To use it, just put:</p> <pre><code>&lt;table data-csv=&quot;http://some-url-to/your-file.csv&quot;&gt;&lt;/table&gt;
-</code></pre>
-  <p>For example:</p>
-  <table data-csv="example.csv"></table>
-  <h2>Header-Links</h2>
-  <p>The header-links script (<a href="https://github.com/cofl/metalsmith-markdown-site-template/blob/gh-pages/src/src/static/static/scripts/header-links.js"><code>/static/scripts/header-links.js</code></a>)
-    automatically generates a table of contents like the one on the left from the headers on your page. By default, it inserts it into a <code>div</code> with the
-    id <code>nav</code>, so <strong>don't use that in your code</strong>!!! Everything in it will be overridden.</p>
-  <p>If you want to add HTML before or after the generated ToC, throw a <code>template</code> in the YAML header for your markdown file (see <a href="https://raw.githubusercontent.com/cofl/metalsmith-markdown-site-template/gh-pages/src/src/render/index.md">index.md</a>).
-    The one for this page looks like this:</p> <pre><code>templates:
+<!DOCTYPE html><html><head><meta charset=UTF-8><title>metalsmith-markdown-site-template</title><link rel=stylesheet type=text/css href=/static/md.css><script src=index.js></script><script src=/static/scripts/main.js></script><script src=/static/scripts/leipzig.js></script><script src=/static/scripts/csv-tables.js></script><link rel=stylesheet type=text/css href=https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css></head><body><h1><a name=top title=Top>metalsmith markdown site template</a></h1><p>This is a template site using Metalsmith and Markdown, based on <a href=https://cofl.github.io>https://cofl.github.io</a>. Included batteries are:</p><ul><li>Prebuilt stylesheet (<code>md.css</code>)</li><li>Several prebuilt scripts that should be useful for just about everyone.</li><li>A demonstration <code>index.md</code> to show off the above two points.</li></ul><h2><a name=glosses></a>Glosses <a href=#glosses class="fa fa-link link-icon"></a></h2><p>Glossing is supported with <a href=https://github.com/cofl/metalsmith-markdown-site-template/blob/gh-pages/src/src/static/static/scripts/leipzig.js><code>/static/scripts/leipzig.js</code></a>, <a href="https://bdchauvette.github.io/leipzig.js/examples/">Leipzig.js</a>.</p><div data-gloss=""><p>Die Umgangssprache ist ein Teil des menschlichen Organismus und nicht weniger kompliziert als dieser.</p><p>die umgangssprache ist ein teil des mensch-lich-en organismus und nicht wenig-er komplizeiert als dies-er</p><p>DET.NOM.F.SG {colloquial language} be.3SG.PRS DET.NOM.M.SG part DET.GEN.M.SG human-ADJ-AGR.GEN.M.SG organism and NEG less-CMPR complicated CMPR DET-AGR.M.SG</p><p>the {colloquial language} is a part {of the} human organism and not less complicated than it</p><p>&#x2018;Colloquial language is a part of the human organism and is not less complicated than it.&#x2019; &#x2014; Wittgenstein, <i>Tractatus Logico-Philosophicus</i>, 4.002</p></div><p>To change the settings, add an <a href=https://github.com/cofl/metalsmith-markdown-site-template/blob/gh-pages/src/src/render/index.js>index.js</a> file like the one linked.</p><h2><a name=csv_tables></a>CSV Tables <a href=#csv_tables class="fa fa-link link-icon"></a></h2><p>With the CSV-Tables script (<a href=https://github.com/cofl/metalsmith-markdown-site-template/blob/gh-pages/src/src/static/static/scripts/csv-tables.js><code>/static/scripts/csv-tables.js</code></a>), it becomes easy to include an external CSV file as a table in your page. To use it, just put:</p><pre><code>&lt;table data-csv=&quot;http://some-url-to/your-file.csv&quot;&gt;&lt;/table&gt;
+</code></pre><p>For example:</p><table data-csv=example.csv></table><h2><a name=header-links></a>Header-Links <a href=#header-links class="fa fa-link link-icon"></a></h2><p>The header-links script <s>(<code>/static/scripts/header-links.js</code>)</s> automatically generates a table of contents like the one on the left from the headers on your page. By default, it inserts it into a <code>div</code> with the id <code>nav</code>, so <strong>don&apos;t use that in your code</strong>!!! Everything in it will be overridden.</p><p><strong>Update:</strong> The header-links.js script has been replaced. Now, to automagically generate navigation, simply add the following in the YAML header of your markdown file:</p><pre><code>generate:
+  nav: true
+</code></pre><p>If you want to add HTML before or after the generated ToC, throw a <code>template</code> in the YAML header for your markdown file (see <a href=https://raw.githubusercontent.com/cofl/metalsmith-markdown-site-template/gh-pages/src/src/render/index.md>index.md</a>). The one for this page looks like this:</p><pre><code>templates:
   header-top: &gt;
     &lt;a href=&quot;#top&quot;&gt;top of page&lt;/a&gt;
     &lt;hr/&gt;
   header-trail: &gt;
     &lt;hr/&gt;
     This ToC was automagically generated.
-</code></pre>
-  <h2><code>clone-attributes.js</code></h2>
-  <p><a href="https://github.com/cofl/metalsmith-markdown-site-template/blob/gh-pages/src/src/static/static/scripts/clone-attributes.js"><code>clone-attributes.js</code></a>    is a convenience script that takes all attributes of a <code>&lt;clone&gt;</code> element and copies them to the next element, or the parent node's next element
-    if the <code>&lt;clone&gt;</code> element is the last child of a <code>&lt;p&gt;</code> element (paragraph), merging the class or style attributes if both the
-    <code>&lt;clone&gt;</code> node and its sibling have them. This is useful for writing tables; with it, instead of writing out the full table in HTML just to
-    add a few classes, you could instead do:</p> <pre><code>&lt;clone class=&quot;row-headers&quot;&gt;&lt;/clone&gt;
+</code></pre><h2><a name=clone-attributes.js></a><code>clone-attributes.js</code> <a href=#clone-attributes.js class="fa fa-link link-icon"></a></h2><p><s><code>clone-attributes.js</code></s> is a convenience script that takes all attributes of a <code>&lt;clone&gt;</code> element and copies them to the next element, or the parent node&apos;s next element if the <code>&lt;clone&gt;</code> element is the last child of a <code>&lt;p&gt;</code> element (paragraph), merging the class or style attributes if both the <code>&lt;clone&gt;</code> node and its sibling have them. This is useful for writing tables; with it, instead of writing out the full table in HTML just to add a few classes, you could instead do:</p><pre><code>&lt;clone class=&quot;row-headers&quot;&gt;&lt;/clone&gt;
 |Some-table|header|header|
 |----------|------|------|
 |row header|etc   |etc   |
-</code></pre>
-  <p>
-    <clone class="row-headers"></clone>
-  </p>
-  <table>
-    <thead>
-      <tr>
-        <th>Some-table</th>
-        <th>header</th>
-        <th>header</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>row header</td>
-        <td>etc</td>
-        <td>etc</td>
-      </tr>
-    </tbody>
-  </table>
-  <p>for example, to create a table with markdown, and give it the &quot;row-headers&quot; class. This class also triggers a special case on tables: the script will
-    change the first element of any table row to a <code>&lt;th&gt;</code> cell from a <code>&lt;td&gt;</code> cell.</p>
-  <p><code>&lt;clone-p&gt;</code> does the same thing, but instead of copying to the sibling, copies to the parent; useful for spanning multiple columns:</p> <pre>|Table |header|header|
+</code></pre><table class=row-headers><thead><tr><th>Some-table</th><th>header</th><th>header</th></tr></thead><tbody><tr><th>row header</th><td>etc</td><td>etc</td></tr></tbody></table><p>for example, to create a table with markdown, and give it the &quot;row-headers&quot; class. This class also triggers a special case on tables: the script will change the first element of any table row to a <code>&lt;th&gt;</code> cell from a <code>&lt;td&gt;</code> cell.</p><p><strong>Update:</strong> The clone-attributes.js script has been replaced. Now to perform the same functionality at page build time, simply add the following in the YAML header of your markdown file:</p><pre><code>generate:
+  clone: true
+</code></pre><p>If you&apos;ve already enabled navigation generation, be sure not to add a new <code>generate</code> node! Just add clone next to the nav line like so:</p><pre><code>generate:
+  nav: true
+  clone: true
+</code></pre><p><code>&lt;clone-p&gt;</code> does the same thing, but instead of copying to the sibling, copies to the parent; useful for spanning multiple columns:</p><pre>|Table |header|header|
 |:----:|------|------|
-|&lt;clone-p colspan=3 style="background:#aaa"></clone-p>content|</pre>
-  <table>
-    <thead>
-      <tr>
-        <th style="text-align:center">Table</th>
-        <th>header</th>
-        <th>header</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td style="text-align:center">
-          <clone-p colspan=3 style="background:#aaa"></clone-p>content</td>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <p>The only side-effect of this script is the automatic removal of all empty table cells at the end of a row.</p>
-  <h2>Getting Started with Metalsmith and Github Pages: A Tutorial for Your Own Conlang Website</h2>
-  <p><em>This tutorial was originally uploaded to reddit.</em></p>
-  <p>Hello! Today, I'd like to walk you through the steps of how you can set up your own conlanging website akin to <a href="https://cofl.github.io">mine</a> using
-    Metalsmith for page generation and GitHub pages for hosting. This method is not perfect for everyone, but I'll try to cover everything in detail.</p>
-  <h3>1. Prerequisites</h3>
-  <p>There are a few things you'll need to get started. A lot of these are platform specific, but as I have experience with Windows, I'll cover what's required for
-    that. Users of Linux and Mac should be able to still follow along and get the general idea of what you'll need, but Google is your friend.</p>
-  <ul>
-    <li><a href="https://github.com">A GitHub account</a>. Can't use GitHub Pages without one.</li>
-    <li><a href="https://www.cygwin.com/">Cygwin</a> This isn't <em>technically</em> required, but includes some great command-line tools and makes the rest of this
-      much, much easier to use (basically, get it unless you're good enough to not have to follow this tutorial). Be sure to install <code>grep</code>, <code>bash</code>,
-      and <code>make</code>, or whatever searching for those turns up that looks to be right. I'm pretty sure it adds itself to the PATH system setting, but just
-      to check, open a command prompt/terminal and type <code>echo %PATH%</code> (Windows only). If you don't see something like <code>C:/cygwin/bin</code>, Google
-      how to add a directory to your path; (<a href="https://www.google.com/search?q=how+to+add+a+directory+to+path+windows">link for the lazy</a>).</li>
-    <li><a href="http://blog.nodeknockout.com/post/65463770933/how-to-install-nodejs-and-npm">NodeJS and NPM</a> Follow that quick tutorial to install NodeJS and NPM.
-      NodeJS is a program that runs javascript locally on your computer, and is what Metalsmith is built on. NPM is a dependency manager that you'll use to install
-      Metalsmith and the packages you'll need to make it work. To check that they installed correctly, open a command prompt/terminal and type <code>node --version &amp;&amp; npm --version</code>.
-      It should print out two numbers, each on their own line.</li>
-    <li><a href="https://git-scm.com/">Git</a> There are all sorts of programs for using Git, a version control system. I personally prefer the command-line interface,
-      but Atlassian SourceTree and GitHub for Windows/GitHub for Mac work well.</li>
-    <li><a href="http://www.metalsmith.io/">Metalsmith</a>. Metalsmith is a program/script that will generate static content from a set of source files. For this tutorial,
-      we'll be using Markdown, which is what's used here on reddit for text formatting. That's a little bit of a lie: the Markdown available on reddit is very restricted
-      compared to what you can do with the base version: there's no inline HTML, for example. With HTML, you could do great things like links to other parts of the
-      same page, or advanced tables, or clean glossing with Leipzig.js.</li>
-  </ul>
-  <h3>2. Getting Going</h3>
-  <p>But OP! That's so many things! How will I ever get started with it all? Good news, random citizen! You only need the first three (Cygwin, NodeJS, Git), as I've
-    prepared a template site for you! It's very easy to get started from there:</p>
-  <ol>
-    <li>Log in to GitHub.</li>
-    <li>Go to https://github.com/cofl/metalsmith-markdown-site-template and click &quot;Fork&quot; on the top right. This will create a copy of the template site in
-      your account.</li>
-    <li>Go to the &quot;Settings&quot; page for the repository you just forked, and change the name to &quot;your-username.github.io&quot;, replacing &quot;your-username&quot;
-      with the name of your account on GitHub.</li>
-    <li>This step is for those who installed Git from the link I provided; others, sorry. Open a command prompt/terminal where you want to put the files for you website
-      (try shift-right click in Windows Explorer) and enter <code>git clone https://github.com/your-username/your-username.github.io.git</code>, obviously, replacing
-      &quot;your-username&quot; with your GitHub username. This will download the repository to your computer so you can edit the files.</li>
-  </ol>
-  <p>There is a file called <code>Makefile</code> in the repository that provides a few commands:</p>
-  <ul>
-    <li><code>make install</code>: Installs all NPM dependencies. This is necessary for everything else to work.</li>
-    <li><code>make clean-npm</code>: Removes all NPM dependencies.</li>
-    <li><code>make build</code>: Runs Metalsmith and generates your site. You can also run just <code>make</code>, and it'll do the same thing.
-      <ul>
-        <li><code>make build-watched</code>: Runs Metalsmith with the <code>build-development</code> configuration, which starts a live reload server and includes the
-          necessary script in the template.</li>
-      </ul>
-    </li>
-    <li><code>make clean</code>: Removes all generated files. This is run before every build automatically.</li>
-    <li><code>make show</code>: This is more convenience than anything. It starts a static file server in the repository folder, so after running it you can open any
-      web browser and go to <a href="http://localhost/"><code>http://localhost/</code></a> to view your generated site. I recommend doing this before every time
-      you upload the site.</li>
-  </ul>
-  <p>Now, some more things:</p>
-  <p>The <code>src</code> folder is where all the things for you site go. Actually, they go in <code>src/src</code>, for things that will be rendered when Metalsmith
-    runs, and <code>src/static</code>, for things you don't want Metalsmith to touch, only copy. Both of these support having sub-folders.</p>
-  <p>In the <code>src/src</code> folder is where you should put all the Markdown files (.md) that will be the pages of your site. These will be rendered into HTML and
-    saved with a .html extension. For example, <code>src/src/index.md</code> would be rendered to <code>index.html</code>, and <code>src/src/some-folder/some-file.md</code>    would be rendered to <code>some-folder/some-file.html</code>. Check out the example file for more details.</p>
-  <h3>3. Uploading</h3>
-  <p>Lastly, how to save. Git is what is known as a version control system. Basically, it keeps track of all the changes saved across all the copies of the repository.
-    To upload your site to GitHub, open a command prompt/terminal, build the repository with <code>make</code>, and enter:</p> <pre><code>git add --all
-</code></pre>
-  <p>This checks for all the changes made and prepares them to be saved. Then enter:</p> <pre><code>git commit -m &quot;some commit message -- you can change this to whatever you want&quot;
-</code></pre>
-  <p>This commits (saves) the changes to the repository. Lastly, enter:</p> <pre><code>git push origin master
-</code></pre>
-  <p>It will ask you for your GitHub username and password. This step uploads the changes to GitHub pages. If it gives you an error about being out of sync or something
-    like that, try backing up your site's files (a precaution) and entering <code>git pull</code>, then adding your files back and starting again with <code>git add --all</code>.</p>
-  <p>That's it, you're live! To view your new site, go to <code>http://your-username.github.io</code>.</p>
-</body>
-
-</html>
+|&lt;clone-p colspan=3 style=&quot;background:#aaa&quot;&gt;content|</pre><table><thead><tr><th style=text-align:center>Table</th><th>header</th><th>header</th></tr></thead><tbody><tr><td style=text-align:center;background:#aaa colspan=3>content</td><td></td><td></td></tr></tbody></table><p>The only side-effect of this script is the automatic removal of all empty table cells at the end of a row.</p><h2><a name=getting_started_with_metalsmith_and_github_pages:_a_tutorial_for_your_own_conlang_website></a>Getting Started with Metalsmith and Github Pages: A Tutorial for Your Own Conlang Website <a href=#getting_started_with_metalsmith_and_github_pages:_a_tutorial_for_your_own_conlang_website class="fa fa-link link-icon"></a></h2><p><em>This tutorial was originally uploaded to reddit.</em></p><p>Hello! Today, I&apos;d like to walk you through the steps of how you can set up your own conlanging website akin to <a href=https://cofl.github.io>mine</a> using Metalsmith for page generation and GitHub pages for hosting. This method is not perfect for everyone, but I&apos;ll try to cover everything in detail.</p><h3><a name=1._prerequisites></a>1. Prerequisites <a href=#1._prerequisites class="fa fa-link link-icon"></a></h3><p>There are a few things you&apos;ll need to get started. A lot of these are platform specific, but as I have experience with Windows, I&apos;ll cover what&apos;s required for that. Users of Linux and Mac should be able to still follow along and get the general idea of what you&apos;ll need, but Google is your friend.</p><ul><li><a href=https://github.com>A GitHub account</a>. Can&apos;t use GitHub Pages without one.</li><li><a href="https://www.cygwin.com/">Cygwin</a> This isn&apos;t <em>technically</em> required, but includes some great command-line tools and makes the rest of this much, much easier to use (basically, get it unless you&apos;re good enough to not have to follow this tutorial). Be sure to install <code>grep</code>, <code>bash</code>, and <code>make</code>, or whatever searching for those turns up that looks to be right. I&apos;m pretty sure it adds itself to the PATH system setting, but just to check, open a command prompt/terminal and type <code>echo %PATH%</code> (Windows only). If you don&apos;t see something like <code>C:/cygwin/bin</code>, Google how to add a directory to your path; (<a href="https://www.google.com/search?q=how+to+add+a+directory+to+path+windows">link for the lazy</a>).</li><li><a href=http://blog.nodeknockout.com/post/65463770933/how-to-install-nodejs-and-npm>NodeJS and NPM</a> Follow that quick tutorial to install NodeJS and NPM. NodeJS is a program that runs javascript locally on your computer, and is what Metalsmith is built on. NPM is a dependency manager that you&apos;ll use to install Metalsmith and the packages you&apos;ll need to make it work. To check that they installed correctly, open a command prompt/terminal and type <code>node --version &amp;&amp; npm --version</code>. It should print out two numbers, each on their own line.</li><li><a href="https://git-scm.com/">Git</a> There are all sorts of programs for using Git, a version control system. I personally prefer the command-line interface, but Atlassian SourceTree and GitHub for Windows/GitHub for Mac work well.</li><li><a href="http://www.metalsmith.io/">Metalsmith</a>. Metalsmith is a program/script that will generate static content from a set of source files. For this tutorial, we&apos;ll be using Markdown, which is what&apos;s used here on reddit for text formatting. That&apos;s a little bit of a lie: the Markdown available on reddit is very restricted compared to what you can do with the base version: there&apos;s no inline HTML, for example. With HTML, you could do great things like links to other parts of the same page, or advanced tables, or clean glossing with Leipzig.js.</li></ul><h3><a name=2._getting_going></a>2. Getting Going <a href=#2._getting_going class="fa fa-link link-icon"></a></h3><p>But OP! That&apos;s so many things! How will I ever get started with it all? Good news, random citizen! You only need the first three (Cygwin, NodeJS, Git), as I&apos;ve prepared a template site for you! It&apos;s very easy to get started from there:</p><ol><li>Log in to GitHub.</li><li>Go to https://github.com/cofl/metalsmith-markdown-site-template and click &quot;Fork&quot; on the top right. This will create a copy of the template site in your account.</li><li>Go to the &quot;Settings&quot; page for the repository you just forked, and change the name to &quot;your-username.github.io&quot;, replacing &quot;your-username&quot; with the name of your account on GitHub.</li><li>This step is for those who installed Git from the link I provided; others, sorry. Open a command prompt/terminal where you want to put the files for you website (try shift-right click in Windows Explorer) and enter <code>git clone https://github.com/your-username/your-username.github.io.git</code>, obviously, replacing &quot;your-username&quot; with your GitHub username. This will download the repository to your computer so you can edit the files.</li></ol><p>There is a file called <code>Makefile</code> in the repository that provides a few commands:</p><ul><li><code>make install</code>: Installs all NPM dependencies. This is necessary for everything else to work.</li><li><code>make clean-npm</code>: Removes all NPM dependencies.</li><li><code>make build</code>: Runs Metalsmith and generates your site. You can also run just <code>make</code>, and it&apos;ll do the same thing.<ul><li><code>make build-watched</code>: Runs Metalsmith with the <code>build-development</code> configuration, which starts a live reload server and includes the necessary script in the template.</li></ul></li><li><code>make clean</code>: Removes all generated files. This is run before every build automatically.</li><li><code>make show</code>: This is more convenience than anything. It starts a static file server in the repository folder, so after running it you can open any web browser and go to <a href="http://localhost/"><code>http://localhost/</code></a> to view your generated site. I recommend doing this before every time you upload the site.</li></ul><p>Now, some more things:</p><p>The <code>src</code> folder is where all the things for you site go. Actually, they go in <code>src/src</code>, for things that will be rendered when Metalsmith runs, and <code>src/static</code>, for things you don&apos;t want Metalsmith to touch, only copy. Both of these support having sub-folders.</p><p>In the <code>src/src</code> folder is where you should put all the Markdown files (.md) that will be the pages of your site. These will be rendered into HTML and saved with a .html extension. For example, <code>src/src/index.md</code> would be rendered to <code>index.html</code>, and <code>src/src/some-folder/some-file.md</code> would be rendered to <code>some-folder/some-file.html</code>. Check out the example file for more details.</p><h3><a name=3._uploading></a>3. Uploading <a href=#3._uploading class="fa fa-link link-icon"></a></h3><p>Lastly, how to save. Git is what is known as a version control system. Basically, it keeps track of all the changes saved across all the copies of the repository. To upload your site to GitHub, open a command prompt/terminal, build the repository with <code>make</code>, and enter:</p><pre><code>git add --all
+</code></pre><p>This checks for all the changes made and prepares them to be saved. Then enter:</p><pre><code>git commit -m &quot;some commit message -- you can change this to whatever you want&quot;
+</code></pre><p>This commits (saves) the changes to the repository. Lastly, enter:</p><pre><code>git push origin master
+</code></pre><p>It will ask you for your GitHub username and password. This step uploads the changes to GitHub pages. If it gives you an error about being out of sync or something like that, try backing up your site&apos;s files (a precaution) and entering <code>git pull</code>, then adding your files back and starting again with <code>git add --all</code>.</p><p>That&apos;s it, you&apos;re live! To view your new site, go to <code>http://your-username.github.io</code>.</p></body></html><div id=nav><div style="padding:0;margin:10px 0"><span id=tocm>TOC</span><a href=#top>top of page</a><hr><a href=#glosses>Glosses</a><a href=#csv_tables>CSV Tables</a><a href=#header-links>Header-Links</a><a href=#clone-attributes.js>clone-attributes.js</a><a href=#getting_started_with_metalsmith_and_github_pages:_a_tutorial_for_your_own_conlang_website>Getting Started with Metalsmith and Github Pages: A Tutorial for Your Own Conlang Website</a><span><a href=#1._prerequisites>1. Prerequisites</a><a href=#2._getting_going>2. Getting Going</a><a href=#3._uploading>3. Uploading</a><hr>This ToC was automagically generated.</span></div></div>
