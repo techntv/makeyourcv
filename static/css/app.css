@@ -1,0 +1,36 @@
+.person{
+    background: green;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.rowFlex{
+    display: flex;
+    flex-flow: wrap;
+}
+
+.list-person{
+    display: flex;
+}
+
+.product__promotion{
+    padding: 20px;
+    background: green;
+}
+
+.phone__detail--sm,
+.phone__detail--lg{
+    padding: 20px;
+    background: white;
+    width: 100%;
+}
+
+.m-b-20{
+    margin-bottom: 20px;
+}
+
+.full-width{
+    display: block;
+}
